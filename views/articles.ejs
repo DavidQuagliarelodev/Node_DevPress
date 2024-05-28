@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head')%>
+  <body>
+    <header>
+      <%- include('./partials/navbarclient')%>
+    </header>
+    <main>
+        <div class="container  mt-5">
+            <div class="card mb-5">
+              <div class="card-header bg-dark text-light pt-3">
+                <h2><%= articles.title%></h2>
+              </div>
+              <div class="card-body body_articles">
+                <%- articles.body%>
+              </div>
+            </div>
+        </div>
+    </main>
+  </body>
+  <%- include('./partials/footer')%>
+</html>

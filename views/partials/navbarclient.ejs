@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <i class="bi bi-pen-fill"></i>
+        <span class="text-light text-center">DevPress</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse text-light" id="navbarNav">
+        <ul class="navbar-nav">
+          <%if(user){%>
+            <li class="nav-item">
+              <a class="nav-link active text-light" aria-current="page" href="/admin/categories">Admin</a>
+            </li>
+          <%}%>
+          <%category.forEach((categories =>{%>
+            <li class="nav-item">
+              <a class="nav-link active text-light" aria-current="page" href="/category/<%=categories.slug%>"><%=categories.title%></a>
+            </li>
+          <%}))%>
+          <%if(user){%>
+            <li class="nav-item">
+              <a class="nav-link active text-light " aria-current="page" href="/admin/users/logout">Logout</a>
+            </li>
+          <%}else{%>
+            <li class="nav-item">
+              <a class="nav-link active text-light " aria-current="page" href="/admin/users/login">Login</a>
+            </li>
+          <%}%>
+        </ul>
+      </div>
+    </div>
+  </nav>
+

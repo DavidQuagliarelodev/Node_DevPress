@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../../partials/head')%>
+  <body>
+    <header>
+      <%- include('../../partials/navbar')%>
+    </header>
+    <main>
+      <div class="container">
+        <hr />
+        <h2 class="mb-3">Categories</h2>
+        <a href="/admin/categories/new">
+          <button class="btn bg-success text-light">Create New Category</button>
+        </a>
+        <hr />
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Title</th>
+              <th>Slug</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%category.forEach(e =>{%>
+              <tr>
+                <th><%= e.id%></th>
+                <th><%= e.title%></th>
+                <th><%= e.slug%></th>
+                <th>
+                  <a href="/admin/categories/edit/<%= e.id%>">
+                    <button class="btn btn-warning">Edit</button>
+                  </a>
+                  <form method="post" action="/admin/categories/delete" id="form_delete" onsubmit="deleteSubmit(event, this)">
+                    <input type="hidden" name="id_category" value="<%= e.id%>"">
+                    <button class="btn btn-danger">Delete</button>
+                  </form>
+                </th>
+              </tr>
+            <%})%>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+  <%- include('../../partials/footer')%>
+  <script src="/js/categories/index.js"></script>
+</html>

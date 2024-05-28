@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../../partials/head')%>
+
+  <body>
+    <header><%- include('../../partials/navbar')%></header>
+    <main>
+      <div class="container mt-5">
+        <div class="card">
+          <div class="card-header bg-dark text-light pt-3">
+            <h2>Register User</h2>
+          </div>
+          <div class="card-body">
+            <form method="post" action="/admin/users/create">
+              <label class="mb-2">Your Email</label>
+              <input
+                type="email"
+                name="email"
+                placeholder="email@email.com"
+                class="form-control mb-3"
+              />
+              <label class="mb-2">Your Password</label>
+              <input
+                type="password"
+                name="password"
+                placeholder="************"
+                class="form-control mb-3"
+              />
+              <button class="btn btn-dark form-control">Send</button>
+              <br
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  <%- include('../../partials/footer')%>
+</html>

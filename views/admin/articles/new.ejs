@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../../partials/head')%>
+
+  <body>
+    <header><%- include('../../partials/navbar')%></header>
+    <main>
+      <div class="container mt-5">
+        <div class="card">
+          <div class="card-header bg-dark text-light pt-3">
+            <h2>Create New Article</h2>
+          </div>
+          <div class="card-body">
+            <form method="post" action="/admin/articles/save">
+              <input
+                type="text"
+                name="title"
+                placeholder="Define Title new Article"
+                class="form-control mb-3"
+              />
+              <textarea
+                class="form-control mb-3"
+                name="body_article"
+                id="body_article"
+                placeholder="Define body you Article"
+              ></textarea>
+              <label class="mt-3">Categories</label>
+              <select name="categories_select" class="form-control mb-3">
+                <%categories.forEach((e=>{%>
+                <option value="<%=e.id%>"><%=e.title%></option>
+                <%}))%>
+              </select>
+              <button class="btn btn-dark">Send</button>
+              <br
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  <%- include('../../partials/footer')%>
+  <script src="/tinymce/tinymce.min.js"></script>
+  <script src="/js/articles/tinymce.js"></script>
+</html>

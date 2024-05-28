@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../../partials/head')%>
+  <body>
+    <header>
+      <%- include('../../partials/navbar')%>
+    </header>
+    <main>
+      <div class="container">
+        <hr />
+        <h2 class="mb-3">Users</h2>
+        <a href="/admin/users/new">
+          <button class="btn bg-success text-light">Create New Admin User</button>
+        </a>
+        <hr />
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%users.forEach(user =>{%>
+              <tr>
+                <th><%= user.id%></th>
+                <th><%= user.email%></th>
+                <th>
+                  <a href="">
+                    <button class="btn btn-warning form-control">Edit</button>
+                  </a>
+                  <form>
+                    <input type="hidden" name="id_category">
+                    <button class="btn btn-danger form-control">Delete</button>
+                  </form>
+                </th>
+              </tr>
+            <%})%>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+  <%- include('../../partials/footer')%>
+  <script src="/js/categories/index.js"></script>
+</html>

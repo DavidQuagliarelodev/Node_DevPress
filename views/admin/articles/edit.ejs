@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../../partials/head')%>
+
+  <body>
+    <header><%- include('../../partials/navbar')%></header>
+    <main>
+      <div class="container mt-5">
+        <div class="card">
+          <div class="card-header bg-dark text-light pt-3">
+            <h2>Edit your Article</h2>
+          </div>
+          <div class="card-body">
+            <form method="post" action="/admin/articles/update">
+              <input
+                type="text"
+                name="title_article"
+                placeholder="Define Title new Article"
+                class="form-control mb-3"
+                value="<%= articles.title%>"
+              />
+              <input
+                type="hidden"
+                name="id_article"
+                placeholder="Define Title new Article"
+                class="form-control mb-3"
+                value="<%=articles.id%>"
+              />
+              <textarea
+                class="form-control mb-3"
+                name="body_article"
+                id="body_article"
+              ><%- articles.body%></textarea>
+              <label class="mt-3">Categories</label>
+              <select name="id_category" class="form-control mb-3">
+                <%categories.forEach((category=>{%>
+                  <%if(category.id == articles.category.id){%>
+                    <option value="<%=category.id%>" selected><%=category.title%></option>
+                  <%}else{%>
+                    <option value="<%=category.id%>"><%=category.title%></option>
+                  <%}%>
+                <%}))%>
+              </select>
+              <button class="btn btn-dark">Send</button>
+              <br
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  <%- include('../../partials/footer')%>
+  <script src="/tinymce/tinymce.min.js"></script>
+  <script src="/js/articles/tinymce.js"></script>
+</html>

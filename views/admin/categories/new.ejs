@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../../partials/head')%>
+
+    <body>
+        <header><%- include('../../partials/navbar')%></header>
+        <main>
+            <div class="container mt-5">
+                <div class="card">
+                    <div class="card-header bg-dark text-light pt-3">
+                        <h2>Register category</h2>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" action="/admin/categories/save">
+                            <input type="text" name="title" placeholder="Define new category" class="form-control mb-3" />
+                            <button class="btn btn-dark">Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+    <%- include('../../partials/footer')%>
+</html>
